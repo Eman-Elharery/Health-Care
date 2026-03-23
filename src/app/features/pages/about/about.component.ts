@@ -51,24 +51,7 @@ import { RouterModule } from '@angular/router';
         </div>
       </section>
 
-      <!-- Team -->
-      <section class="py-16 px-4 bg-white">
-        <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900">Meet Our Team</h2>
-            <p class="text-gray-500 mt-2">Dedicated professionals committed to your health</p>
-          </div>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div *ngFor="let member of team" class="text-center group">
-              <div class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-teal-100 to-blue-100 flex items-center justify-center text-2xl mb-3 group-hover:scale-105 transition-transform">
-                {{ member.emoji }}
-              </div>
-              <div class="font-semibold text-gray-900 text-sm">{{ member.name }}</div>
-              <div class="text-teal-600 text-xs">{{ member.role }}</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <!-- CTA -->
       <section class="py-16 px-4 bg-gradient-to-br from-teal-500 to-blue-600 text-white text-center">
