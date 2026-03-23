@@ -397,7 +397,7 @@ import { RouterModule } from '@angular/router';
             <!-- Submit Button -->
             <div>
               <button type="submit" (click)="submit()"
-                class="w-full py-4 bg-gradient-to-r from-teal-500 to-blue-600 text-white rounded-2xl font-semibold text-base hover:opacity-90 transition-opacity shadow-lg shadow-teal-200">
+                class="w-full py-4 bg-gradient-to-r from-teal-500 to-[#42759d]  text-white rounded-2xl font-semibold text-base hover:opacity-90 transition-opacity shadow-lg shadow-teal-200">
                 Submit Assessment
               </button>
               <p class="text-center text-xs text-gray-400 mt-3">

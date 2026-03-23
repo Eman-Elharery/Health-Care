@@ -56,7 +56,7 @@ import { FormsModule } from '@angular/forms';
             </div>
             <button
               (click)="submit()"
-              class="w-full py-3 bg-gradient-to-r from-teal-500 to-blue-600 text-white rounded-xl font-medium text-sm hover:opacity-90 transition-opacity shadow-md shadow-teal-200"
+              class="w-full py-3 bg-[#42759d] text-white rounded-xl font-medium text-sm hover:opacity-90 transition-opacity shadow-md shadow-teal-200"
             >Send Message</button>
 
             <div *ngIf="sent" class="p-3 bg-teal-50 text-teal-700 rounded-xl text-center text-sm">

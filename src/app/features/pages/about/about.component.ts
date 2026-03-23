@@ -54,7 +54,7 @@ import { RouterModule } from '@angular/router';
       
 
       <!-- CTA -->
-      <section class="py-16 px-4 bg-gradient-to-br from-teal-500 to-blue-600 text-white text-center">
+      <section class="py-16 px-4 bg-gradient-to-br  from-teal-500 to-[#42759d]  text-white text-center">
         <h2 class="text-3xl font-bold mb-4">Ready to get started?</h2>
         <p class="text-teal-100 mb-8">Book your first appointment in minutes</p>
         <a routerLink="/book-appointment"
