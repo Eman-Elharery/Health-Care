@@ -1,0 +1,6 @@
+/* Sidebar always visible on large screens */
+@media (min-width: 1024px) {
+  aside {
+    transform: translateX(0) !important;
+  }
+}

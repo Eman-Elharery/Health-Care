@@ -1,0 +1,27 @@
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.animate-fade-in-delayed {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}

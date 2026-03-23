@@ -1,0 +1,65 @@
+<section class="py-24 bg-gray-50">
+  <div class="container mx-auto px-4">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div>
+        <span class="text-teal-600 font-medium text-sm tracking-wider uppercase mb-4 block">
+          Health Resources
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+          Latest Medical Articles
+        </h2>
+      </div>
+      <a routerLink="/articles"
+         class="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-gray-200 rounded-xl text-gray-700 font-medium hover:border-teal-300 hover:text-teal-600 transition-all whitespace-nowrap">
+        View All Articles
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <article *ngFor="let article of articles"
+               class="group">
+        <a [routerLink]="['/articles', article.id]" class="block">
+          <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+
+            <!-- Image -->
+            <div class="relative h-48 overflow-hidden">
+              <img
+                [src]="article.image"
+                [alt]="article.title"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute top-4 left-4">
+                <span class="bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                  {{ article.category }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <div class="flex items-center gap-4 text-sm text-gray-400 mb-3">
+                <span>{{ article.date }}</span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  {{ article.readTime }}
+                </span>
+              </div>
+              <h3 class="font-semibold text-lg text-gray-900 mb-2 group-hover:text-teal-600 transition-colors line-clamp-2">
+                {{ article.title }}
+              </h3>
+              <p class="text-gray-500 text-sm line-clamp-2">{{ article.excerpt }}</p>
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
