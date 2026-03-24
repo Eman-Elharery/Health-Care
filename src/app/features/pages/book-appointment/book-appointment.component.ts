@@ -11,7 +11,6 @@ import { RouterModule } from '@angular/router';
     <div class="min-h-screen bg-gray-50 pt-24 pb-16 px-4">
       <div class="max-w-3xl mx-auto">
 
-        <!-- Header -->
         <div class="text-center mb-10">
           <span class="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 text-sm font-medium rounded-full mb-3">Nutrition Assessment</span>
           <h1 class="text-3xl font-bold text-gray-900">Book Your Consultation</h1>
@@ -28,7 +27,6 @@ import { RouterModule } from '@angular/router';
                 <h2 class="text-lg font-semibold text-gray-900">Personal Information</h2>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-
                 <div class="md:col-span-2">
                   <label class="block text-sm font-medium text-gray-700 mb-1">Full Name <span class="text-red-500">*</span></label>
                   <input [(ngModel)]="form.fullName" name="fullName" type="text" placeholder="Enter your full name"
@@ -36,7 +34,6 @@ import { RouterModule } from '@angular/router';
                     [ngClass]="submitted && !form.fullName ? 'border-red-400 bg-red-50' : 'border-gray-200'" />
                   <p *ngIf="submitted && !form.fullName" class="text-red-500 text-xs mt-1">Full name is required</p>
                 </div>
-
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">Age <span class="text-red-500">*</span></label>
                   <input [(ngModel)]="form.age" name="age" type="number" min="1" max="120" placeholder="e.g. 30"
@@ -44,7 +41,6 @@ import { RouterModule } from '@angular/router';
                     [ngClass]="submitted && !form.age ? 'border-red-400 bg-red-50' : 'border-gray-200'" />
                   <p *ngIf="submitted && !form.age" class="text-red-500 text-xs mt-1">Age is required</p>
                 </div>
-
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
                   <input [(ngModel)]="form.phone" name="phone" type="tel" placeholder="+20 xxx xxx xxxx"
@@ -52,7 +48,6 @@ import { RouterModule } from '@angular/router';
                     [ngClass]="submitted && !form.phone ? 'border-red-400 bg-red-50' : 'border-gray-200'" />
                   <p *ngIf="submitted && !form.phone" class="text-red-500 text-xs mt-1">Phone is required</p>
                 </div>
-
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-2">Gender <span class="text-red-500">*</span></label>
                   <div class="flex gap-4">
@@ -63,7 +58,6 @@ import { RouterModule } from '@angular/router';
                   </div>
                   <p *ngIf="submitted && !form.gender" class="text-red-500 text-xs mt-1">Gender is required</p>
                 </div>
-
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-2">Marital Status <span class="text-red-500">*</span></label>
                   <div class="flex gap-4">
@@ -74,7 +68,6 @@ import { RouterModule } from '@angular/router';
                   </div>
                   <p *ngIf="submitted && !form.maritalStatus" class="text-red-500 text-xs mt-1">Required</p>
                 </div>
-
                 <div class="md:col-span-2">
                   <label class="block text-sm font-medium text-gray-700 mb-1">Occupation <span class="text-red-500">*</span></label>
                   <input [(ngModel)]="form.occupation" name="occupation" type="text" placeholder="e.g. Teacher, Engineer, Student"
@@ -82,7 +75,6 @@ import { RouterModule } from '@angular/router';
                     [ngClass]="submitted && !form.occupation ? 'border-red-400 bg-red-50' : 'border-gray-200'" />
                   <p *ngIf="submitted && !form.occupation" class="text-red-500 text-xs mt-1">Occupation is required</p>
                 </div>
-
               </div>
             </div>
 
@@ -96,8 +88,7 @@ import { RouterModule } from '@angular/router';
                 <label *ngFor="let goal of goalOptions"
                   class="flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all"
                   [ngClass]="form.goals.includes(goal) ? 'border-teal-400 bg-teal-50' : 'border-gray-200 hover:border-teal-200'">
-                  <input type="checkbox" [checked]="form.goals.includes(goal)" (change)="toggleGoal(goal)"
-                    class="w-4 h-4 text-teal-500 rounded" />
+                  <input type="checkbox" [checked]="form.goals.includes(goal)" (change)="toggleGoal(goal)" class="w-4 h-4 text-teal-500 rounded" />
                   <span class="text-sm text-gray-700">{{ goal }}</span>
                 </label>
               </div>
@@ -169,12 +160,12 @@ import { RouterModule } from '@angular/router';
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">Skin Condition</label>
-                  <input [(ngModel)]="form.skinCondition" name="skinCondition" type="text" placeholder="e.g. Dry, Oily, Acne-prone, Normal"
+                  <input [(ngModel)]="form.skinCondition" name="skinCondition" type="text" placeholder="e.g. Dry, Oily, Normal"
                     class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">Nails Condition</label>
-                  <input [(ngModel)]="form.nailsCondition" name="nailsCondition" type="text" placeholder="e.g. Brittle, Strong, Discolored"
+                  <input [(ngModel)]="form.nailsCondition" name="nailsCondition" type="text" placeholder="e.g. Brittle, Strong"
                     class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
                 </div>
               </div>
@@ -191,8 +182,7 @@ import { RouterModule } from '@angular/router';
                 <label *ngFor="let opt of menstrualOptions"
                   class="flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all"
                   [ngClass]="form.menstrualCycle.includes(opt) ? 'border-teal-400 bg-teal-50' : 'border-gray-200 hover:border-teal-200'">
-                  <input type="checkbox" [checked]="form.menstrualCycle.includes(opt)" (change)="toggleMenstrual(opt)"
-                    class="w-4 h-4 text-teal-500 rounded" />
+                  <input type="checkbox" [checked]="form.menstrualCycle.includes(opt)" (change)="toggleMenstrual(opt)" class="w-4 h-4 text-teal-500 rounded" />
                   <span class="text-sm text-gray-700">{{ opt }}</span>
                 </label>
               </div>
@@ -207,9 +197,7 @@ import { RouterModule } from '@angular/router';
             <!-- 6. Medical History -->
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-xl bg-teal-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                  {{ form.gender === 'Female' ? '6' : '5' }}
-                </div>
+                <div class="w-8 h-8 rounded-xl bg-teal-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">{{ form.gender === 'Female' ? '6' : '5' }}</div>
                 <h2 class="text-lg font-semibold text-gray-900">Medical History</h2>
               </div>
               <div class="space-y-5">
@@ -230,7 +218,7 @@ import { RouterModule } from '@angular/router';
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">Current Medications <span class="text-red-500">*</span></label>
                   <textarea [(ngModel)]="form.medications" name="medications" rows="3"
-                    placeholder="List all medications you are currently taking, or write None"
+                    placeholder="List all medications, or write None"
                     class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none transition"
                     [ngClass]="submitted && !form.medications ? 'border-red-400 bg-red-50' : 'border-gray-200'"></textarea>
                   <p *ngIf="submitted && !form.medications" class="text-red-500 text-xs mt-1">Required</p>
@@ -245,7 +233,7 @@ import { RouterModule } from '@angular/router';
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">Previous Diets & Duration <span class="text-red-500">*</span></label>
                   <textarea [(ngModel)]="form.previousDiets" name="previousDiets" rows="3"
-                    placeholder="Describe any diets you've followed and their duration, or write None"
+                    placeholder="Describe any diets you've followed and their duration, or None"
                     class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none transition"
                     [ngClass]="submitted && !form.previousDiets ? 'border-red-400 bg-red-50' : 'border-gray-200'"></textarea>
                   <p *ngIf="submitted && !form.previousDiets" class="text-red-500 text-xs mt-1">Required</p>
@@ -260,7 +248,7 @@ import { RouterModule } from '@angular/router';
                   </div>
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Supplements <span class="text-red-500">*</span></label>
-                    <input [(ngModel)]="form.supplements" name="supplements" type="text" placeholder="e.g. Vitamin D, Omega-3, or None"
+                    <input [(ngModel)]="form.supplements" name="supplements" type="text" placeholder="e.g. Vitamin D, or None"
                       class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
                       [ngClass]="submitted && !form.supplements ? 'border-red-400 bg-red-50' : 'border-gray-200'" />
                     <p *ngIf="submitted && !form.supplements" class="text-red-500 text-xs mt-1">Required</p>
@@ -268,7 +256,7 @@ import { RouterModule } from '@angular/router';
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">Psychological Status <span class="text-red-500">*</span></label>
-                  <input [(ngModel)]="form.psychStatus" name="psychStatus" type="text" placeholder="e.g. Stressed, Anxious, Stable, Good"
+                  <input [(ngModel)]="form.psychStatus" name="psychStatus" type="text" placeholder="e.g. Stressed, Stable, Good"
                     class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
                     [ngClass]="submitted && !form.psychStatus ? 'border-red-400 bg-red-50' : 'border-gray-200'" />
                   <p *ngIf="submitted && !form.psychStatus" class="text-red-500 text-xs mt-1">Required</p>
@@ -279,9 +267,7 @@ import { RouterModule } from '@angular/router';
             <!-- 7. Eating Habits -->
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-xl bg-teal-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                  {{ form.gender === 'Female' ? '7' : '6' }}
-                </div>
+                <div class="w-8 h-8 rounded-xl bg-teal-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">{{ form.gender === 'Female' ? '7' : '6' }}</div>
                 <h2 class="text-lg font-semibold text-gray-900">Eating Habits</h2>
               </div>
               <div class="space-y-5">
@@ -329,7 +315,7 @@ import { RouterModule } from '@angular/router';
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1">Soft Drinks, Energy Drinks & Caffeine <span class="text-red-500">*</span></label>
                   <input [(ngModel)]="form.drinks" name="drinks" type="text"
-                    placeholder="e.g. 2 cups of coffee/day, 1 energy drink/week, or None"
+                    placeholder="e.g. 2 cups of coffee/day, or None"
                     class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
                     [ngClass]="submitted && !form.drinks ? 'border-red-400 bg-red-50' : 'border-gray-200'" />
                   <p *ngIf="submitted && !form.drinks" class="text-red-500 text-xs mt-1">Required</p>
@@ -340,9 +326,7 @@ import { RouterModule } from '@angular/router';
             <!-- 8. Physical Activity -->
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-xl bg-teal-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                  {{ form.gender === 'Female' ? '8' : '7' }}
-                </div>
+                <div class="w-8 h-8 rounded-xl bg-teal-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">{{ form.gender === 'Female' ? '8' : '7' }}</div>
                 <h2 class="text-lg font-semibold text-gray-900">Physical Activity</h2>
               </div>
               <div>
@@ -365,9 +349,7 @@ import { RouterModule } from '@angular/router';
             <!-- 9. Sleep -->
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <div class="flex items-center gap-3 mb-6">
-                <div class="w-8 h-8 rounded-xl bg-teal-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                  {{ form.gender === 'Female' ? '9' : '8' }}
-                </div>
+                <div class="w-8 h-8 rounded-xl bg-teal-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">{{ form.gender === 'Female' ? '9' : '8' }}</div>
                 <h2 class="text-lg font-semibold text-gray-900">Sleep</h2>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -394,30 +376,40 @@ import { RouterModule } from '@angular/router';
               </div>
             </div>
 
-            <!-- Submit Button -->
+            <!-- Submit -->
             <div>
-              <button type="submit" (click)="submit()"
-                class="w-full py-4 bg-gradient-to-r from-teal-500 to-[#42759d]  text-white rounded-2xl font-semibold text-base hover:opacity-90 transition-opacity shadow-lg shadow-teal-200">
-                Submit Assessment
+              <button type="submit" (click)="submit()" [disabled]="sending"
+                class="w-full py-4 bg-gradient-to-r from-teal-500 to-[#42759d] text-white rounded-2xl font-semibold text-base hover:opacity-90 transition-opacity shadow-lg shadow-teal-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                <svg *ngIf="sending" class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+                </svg>
+                {{ sending ? 'Sending...' : 'Submit Assessment' }}
               </button>
               <p class="text-center text-xs text-gray-400 mt-3">
-                <span class="text-red-400">*</span> Required fields — please complete all required fields before submitting
+                <span class="text-red-400">*</span> Required fields
               </p>
             </div>
 
-            <!-- Success Message -->
+            <!-- Success -->
             <div *ngIf="showSuccess" class="bg-teal-50 border border-teal-200 rounded-2xl p-6 text-center">
               <div class="text-4xl mb-3">✅</div>
               <h3 class="font-semibold text-teal-800 text-lg">Assessment Submitted Successfully!</h3>
-              <p class="text-teal-600 text-sm mt-1">Dr. Ahmed Mukhtar will review your assessment and contact you shortly to schedule your consultation.</p>
+              <p class="text-teal-600 text-sm mt-1">Dr. Ahmed Mukhtar will review your assessment and contact you shortly.</p>
             </div>
 
-            <!-- Error Banner -->
-            <div *ngIf="submitted && hasErrors()" class="bg-red-50 border border-red-200 rounded-2xl p-4 flex gap-3 items-start">
+            <!-- Send Error -->
+            <div *ngIf="errorMsg" class="bg-red-50 border border-red-200 rounded-2xl p-4 flex gap-3 items-start">
               <span class="text-red-500 text-lg flex-shrink-0">⚠️</span>
+              <p class="text-red-700 font-medium text-sm">Failed to send. Please try again or contact us directly.</p>
+            </div>
+
+            <!-- Validation Error -->
+            <div *ngIf="submitted && hasErrors() && !sending" class="bg-orange-50 border border-orange-200 rounded-2xl p-4 flex gap-3 items-start">
+              <span class="text-orange-500 text-lg flex-shrink-0">⚠️</span>
               <div>
-                <p class="text-red-700 font-medium text-sm">Please complete all required fields</p>
-                <p class="text-red-500 text-xs mt-0.5">Scroll up to find and fill in the missing fields marked in red</p>
+                <p class="text-orange-700 font-medium text-sm">Please complete all required fields</p>
+                <p class="text-orange-500 text-xs mt-0.5">Scroll up to find the missing fields marked in red</p>
               </div>
             </div>
 
@@ -428,36 +420,38 @@ import { RouterModule } from '@angular/router';
   `
 })
 export class BookAppointmentComponent {
-  submitted = false;
+  submitted   = false;
   showSuccess = false;
+  sending     = false;
+  errorMsg    = false;
 
-  form = {
-    fullName: '', age: null as number | null, gender: '', maritalStatus: '',
-    phone: '', occupation: '',
-    goals: [] as string[],
-    currentWeight: null as number | null, height: null as number | null,
-    lowestWeight: null as number | null, highestWeight: null as number | null,
-    hairCondition: '', skinCondition: '', nailsCondition: '',
-    menstrualCycle: [] as string[], menstrualNotes: '',
-    chronicDiseases: '', surgeries: '', medications: '', familyHistory: '',
-    previousDiets: '', foodAllergies: '', supplements: '', psychStatus: '',
-    mealsPerDay: null as number | null, mealTiming: '', eatingOut: '',
-    drinks: '', waterIntake: null as number | null,
-    activityLevel: '',
-    sleepPattern: '', sleepHours: null as number | null,
-  };
+  private SERVICE_ID  = 'service_2bzhwo9';
+  private TEMPLATE_ID = 'template_jekqlsj';
 
-  goalOptions = [
-    'Weight Loss', 'Weight Gain', 'Improve General Health',
-    'Increase Muscle Mass', 'Blood Sugar Regulation', 'Blood Pressure Regulation'
-  ];
-  menstrualOptions = ['Regular', 'Irregular', 'Pain During Period', 'No Pain'];
-  eatingOutOptions = ['Never', 'Once or twice per week', 'Once per month', 'Mostly eating out'];
-  activityOptions = [
-    { value: 'Walking', icon: '🚶' },
-    { value: 'Gym', icon: '🏋️' },
-    { value: 'No physical activity', icon: '🛋️' },
-  ];
+  form = this.emptyForm();
+
+  private emptyForm() {
+    return {
+      fullName: '', age: null as number | null, gender: '', maritalStatus: '',
+      phone: '', occupation: '',
+      goals: [] as string[],
+      currentWeight: null as number | null, height: null as number | null,
+      lowestWeight: null as number | null, highestWeight: null as number | null,
+      hairCondition: '', skinCondition: '', nailsCondition: '',
+      menstrualCycle: [] as string[], menstrualNotes: '',
+      chronicDiseases: '', surgeries: '', medications: '', familyHistory: '',
+      previousDiets: '', foodAllergies: '', supplements: '', psychStatus: '',
+      mealsPerDay: null as number | null, mealTiming: '', eatingOut: '',
+      drinks: '', waterIntake: null as number | null,
+      activityLevel: '',
+      sleepPattern: '', sleepHours: null as number | null,
+    };
+  }
+
+  goalOptions      = ['Weight Loss','Weight Gain','Improve General Health','Increase Muscle Mass','Blood Sugar Regulation','Blood Pressure Regulation'];
+  menstrualOptions = ['Regular','Irregular','Pain During Period','No Pain'];
+  eatingOutOptions = ['Never','Once or twice per week','Once per month','Mostly eating out'];
+  activityOptions  = [{ value: 'Walking', icon: '🚶' },{ value: 'Gym', icon: '🏋️' },{ value: 'No physical activity', icon: '🛋️' }];
 
   toggleGoal(goal: string): void {
     const i = this.form.goals.indexOf(goal);
@@ -485,7 +479,64 @@ export class BookAppointmentComponent {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    this.showSuccess = true;
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+    this.sending  = true;
+    this.errorMsg = false;
+    const f = this.form;
+
+    const p = (window as any).emailjs.send(
+      this.SERVICE_ID,
+      this.TEMPLATE_ID,
+      {
+        name:             f.fullName,
+        age:              f.age,
+        gender:           f.gender,
+        marital_status:   f.maritalStatus,
+        phone:            f.phone,
+        occupation:       f.occupation,
+        goals:            f.goals.join(', '),
+        current_weight:   f.currentWeight,
+        height:           f.height,
+        lowest_weight:    f.lowestWeight  || 'Not provided',
+        highest_weight:   f.highestWeight || 'Not provided',
+        hair_condition:   f.hairCondition,
+        skin_condition:   f.skinCondition  || 'Not provided',
+        nails_condition:  f.nailsCondition || 'Not provided',
+        menstrual_cycle:  f.menstrualCycle.length ? f.menstrualCycle.join(', ') : 'N/A',
+        menstrual_notes:  f.menstrualNotes || 'N/A',
+        chronic_diseases: f.chronicDiseases,
+        surgeries:        f.surgeries,
+        medications:      f.medications,
+        family_history:   f.familyHistory,
+        previous_diets:   f.previousDiets,
+        food_allergies:   f.foodAllergies,
+        supplements:      f.supplements,
+        psych_status:     f.psychStatus,
+        meals_per_day:    f.mealsPerDay,
+        meal_timing:      f.mealTiming,
+        eating_out:       f.eatingOut,
+        drinks:           f.drinks,
+        water_intake:     f.waterIntake,
+        activity_level:   f.activityLevel,
+        sleep_pattern:    f.sleepPattern,
+        sleep_hours:      f.sleepHours,
+      }
+    );
+
+    p.then(
+      () => {
+        console.log('EmailJS success');
+        this.showSuccess = true;
+        this.sending     = false;
+        this.submitted   = false;
+        this.form        = this.emptyForm();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      },
+      (err: any) => {
+        console.error('EmailJS error:', err);
+        this.errorMsg = true;
+        this.sending  = false;
+      }
+    );
   }
 }

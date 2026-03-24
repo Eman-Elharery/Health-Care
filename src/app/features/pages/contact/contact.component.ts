@@ -19,7 +19,8 @@ import { FormsModule } from '@angular/forms';
 
           <!-- Info Cards -->
           <div class="space-y-4">
-            <div *ngFor="let info of contactInfo" class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-start">
+            <div *ngFor="let info of contactInfo"
+                 class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex gap-4 items-start">
               <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-xl flex-shrink-0">
                 {{ info.icon }}
               </div>
@@ -32,36 +33,63 @@ import { FormsModule } from '@angular/forms';
 
           <!-- Form -->
           <div class="md:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm p-8 space-y-5">
+
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                <input [(ngModel)]="form.firstName" type="text" placeholder="Ahmed" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+                <input [(ngModel)]="form.firstName" type="text" placeholder="Ahmed"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                <input [(ngModel)]="form.lastName" type="text" placeholder="Hassan" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+                <input [(ngModel)]="form.lastName" type="text" placeholder="Hassan"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
               </div>
             </div>
+
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <input [(ngModel)]="form.email" type="email" placeholder="you@example.com" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+              <input [(ngModel)]="form.email" type="email" placeholder="you@example.com"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
             </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+              <input [(ngModel)]="form.phone" type="tel" placeholder="+20 xxx xxx xxxx"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+            </div>
+
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-              <input [(ngModel)]="form.subject" type="text" placeholder="How can we help?" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+              <input [(ngModel)]="form.subject" type="text" placeholder="How can we help?"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
             </div>
+
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-              <textarea [(ngModel)]="form.message" rows="4" placeholder="Tell us more..." class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"></textarea>
+              <textarea [(ngModel)]="form.message" rows="4" placeholder="Tell us more..."
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"></textarea>
             </div>
+
             <button
               (click)="submit()"
-              class="w-full py-3 bg-[#42759d] text-white rounded-xl font-medium text-sm hover:opacity-90 transition-opacity shadow-md shadow-teal-200"
-            >Send Message</button>
+              [disabled]="sending"
+              class="w-full py-3 bg-[#42759d] text-white rounded-xl font-medium text-sm hover:opacity-90 transition-opacity shadow-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+              <svg *ngIf="sending" class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+              </svg>
+              {{ sending ? 'Sending...' : 'Send Message' }}
+            </button>
 
-            <div *ngIf="sent" class="p-3 bg-teal-50 text-teal-700 rounded-xl text-center text-sm">
+            <div *ngIf="sent" class="p-3 bg-teal-50 text-teal-700 rounded-xl text-center text-sm font-medium">
               ✓ Message sent! We'll get back to you within 24 hours.
             </div>
+
+            <div *ngIf="errorMsg" class="p-3 bg-red-50 text-red-600 rounded-xl text-center text-sm">
+              ⚠️ Something went wrong. Please try again or contact us directly.
+            </div>
+
           </div>
         </div>
       </div>
@@ -69,17 +97,56 @@ import { FormsModule } from '@angular/forms';
   `
 })
 export class ContactComponent {
-  form = { firstName: '', lastName: '', email: '', subject: '', message: '' };
-  sent = false;
+  form = { firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' };
+  sent     = false;
+  sending  = false;
+  errorMsg = false;
+
+  private SERVICE_ID  = 'service_2bzhwo9';
+  private TEMPLATE_ID = 'template_5awlc9c';
 
   contactInfo = [
     { icon: '📍', title: 'Address', value: '123 Medical Center, Cairo, Egypt' },
-    { icon: '📞', title: 'Phone', value: '+20 100 000 0000' },
-    { icon: '✉️', title: 'Email', value: 'support@medicare.eg' },
-    { icon: '🕐', title: 'Hours', value: 'Mon–Fri, 9AM–6PM' },
+    { icon: '📞', title: 'Phone',   value: '+20 100 000 0000' },
+    { icon: '✉️', title: 'Email',   value: 'support@medicare.eg' },
+    { icon: '🕐', title: 'Hours',   value: 'Mon–Fri, 9AM–6PM' },
   ];
 
+  private emptyForm() {
+    return { firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' };
+  }
+
   submit(): void {
-    this.sent = true;
+    if (!this.form.firstName || !this.form.email || !this.form.message) return;
+
+    this.sending  = true;
+    this.sent     = false;
+    this.errorMsg = false;
+
+    const p = (window as any).emailjs.send(
+      this.SERVICE_ID,
+      this.TEMPLATE_ID,
+      {
+        name:    `${this.form.firstName} ${this.form.lastName}`.trim(),
+        email:   this.form.email,
+        phone:   this.form.phone   || 'Not provided',
+        subject: this.form.subject || 'No subject',
+        message: this.form.message,
+      }
+    );
+
+    p.then(
+      () => {
+        console.log('EmailJS success');
+        this.sent    = true;
+        this.sending = false;
+        this.form    = this.emptyForm();
+      },
+      (err: any) => {
+        console.error('EmailJS error:', err);
+        this.errorMsg = true;
+        this.sending  = false;
+      }
+    );
   }
 }
