@@ -11,8 +11,12 @@ import { RouterModule } from '@angular/router';
 })
 export class FooterComponent {
   quickLinks = [
-    'About Us', 'Our Services', 'Medical Articles',
-    'Video Library', 'Book Appointment', 'Patient Portal'
+    { label: 'Home', routerLink: '/' },
+    { label: 'About Us', routerLink: '/about' },
+    { label: 'Medical Articles', routerLink: '/articles' },
+    { label: 'Video Library', routerLink: '/videos' },
+    { label: 'Book Appointment', routerLink: '/book-appointment' },
+    { label: 'Contact Us', routerLink: '/contact' },
   ];
 
   services = [

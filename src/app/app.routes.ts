@@ -1,6 +1,7 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { PatientLayoutComponent } from './layouts/patient-layout/patient-layout.component';
 import { DoctorLayoutComponent } from './layouts/doctor-layout/doctor-layout.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./features/pages/home/home.component').then(m => m.HomeComponent) },
@@ -10,8 +11,9 @@ export const routes: Routes = [
   { path: 'articles', loadComponent: () => import('./features/pages/articles/articles.component').then(m => m.ArticlesPageComponent) },
   { path: 'videos', loadComponent: () => import('./features/pages/videos/videos.component').then(m => m.VideosPageComponent) },
   { path: 'book-appointment', loadComponent: () => import('./features/pages/book-appointment/book-appointment.component').then(m => m.BookAppointmentComponent) },
+  { path: 'articles/:id', loadComponent: () => import('./features/pages/article-detail/article-detail').then(m => m.ArticleDetailComponent) },
   {
-    path: 'patient',
+    path: 'patient',  
     component: PatientLayoutComponent,
     children: [
       { path: '', loadComponent: () => import('./features/pages/patient/dashboard/dashboard.component').then(m => m.DashboardComponent) },
@@ -37,3 +39,12 @@ export const routes: Routes = [
   },
   { path: '**', loadComponent: () => import('./features/pages/not-found/not-found.component').then(m => m.NotFoundComponent) },
 ];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'top'
+    })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

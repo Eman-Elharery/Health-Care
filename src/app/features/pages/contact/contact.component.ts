@@ -106,9 +106,8 @@ export class ContactComponent {
   private TEMPLATE_ID = 'template_5awlc9c';
 
   contactInfo = [
-    { icon: '📍', title: 'Address', value: '123 Medical Center, Cairo, Egypt' },
-    { icon: '📞', title: 'Phone',   value: '+20 100 000 0000' },
-    { icon: '✉️', title: 'Email',   value: 'support@medicare.eg' },
+    { icon: '📞', title: 'Phone',   value: '+20 10 09827918' },
+    { icon: '✉️', title: 'Email',   value: 'bydwedar@gmail.com' },
     { icon: '🕐', title: 'Hours',   value: 'Mon–Fri, 9AM–6PM' },
   ];
 

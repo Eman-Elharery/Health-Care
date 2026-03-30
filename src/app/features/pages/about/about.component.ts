@@ -11,17 +11,16 @@ import { RouterModule } from '@angular/router';
       <!-- Hero -->
       <section class="bg-gradient-to-br from-teal-50 to-blue-50 py-20 px-4">
         <div class="max-w-4xl mx-auto text-center">
-          <span class="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 text-sm font-medium rounded-full mb-4">About MediCare</span>
+          <span class="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 text-sm font-medium rounded-full mb-4">About By.Dwedar</span>
           <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Healthcare You Can Trust</h1>
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            MediCare connects patients with top-rated doctors for seamless, high-quality healthcare experiences — from consultation to recovery.
-          </p>
+         By.Dwedar provides you with personalized, high-quality healthcare through a trusted doctor — guiding you every step of the way, from consultation to full recovery.          </p>
         </div>
       </section>
 
       <!-- Stats -->
       <section class="py-16 px-4 bg-white">
-        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
           <div *ngFor="let stat of stats" class="text-center">
             <div class="text-3xl font-bold text-teal-600">{{ stat.value }}</div>
             <div class="text-sm text-gray-500 mt-1">{{ stat.label }}</div>
@@ -35,10 +34,10 @@ import { RouterModule } from '@angular/router';
           <div>
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Mission</h2>
             <p class="text-gray-600 leading-relaxed mb-4">
-              We believe everyone deserves access to exceptional healthcare. MediCare bridges the gap between patients and qualified medical professionals through intuitive technology.
+              We believe everyone deserves access to exceptional healthcare. By.Dwedar bridges the gap between patients and qualified medical professionals through intuitive technology.
             </p>
             <p class="text-gray-600 leading-relaxed">
-              Whether you need a quick consultation, ongoing treatment, or specialist care — MediCare makes it simple, fast, and secure.
+              Whether you need a quick consultation, ongoing treatment, or specialist care — By.Dwedar makes it simple, fast, and secure.
             </p>
           </div>
           <div class="grid grid-cols-2 gap-4">
@@ -67,23 +66,16 @@ import { RouterModule } from '@angular/router';
 })
 export class AboutComponent {
   stats = [
-    { value: '500+', label: 'Doctors' },
-    { value: '50K+', label: 'Patients' },
+    { value: '100+', label: 'Patients' },
     { value: '98%', label: 'Satisfaction' },
     { value: '24/7', label: 'Support' },
   ];
 
   values = [
-    { icon: '🏥', title: 'Quality Care', desc: 'Certified medical professionals' },
+    { icon: '🏥', title: 'Quality Care', desc: 'Certified medical professional' },
     { icon: '🔒', title: 'Private & Secure', desc: 'HIPAA-compliant platform' },
     { icon: '⚡', title: 'Fast Access', desc: 'Same-day appointments' },
     { icon: '💙', title: 'Patient First', desc: 'Compassionate approach' },
   ];
 
-  team = [
-    { emoji: '👨‍⚕️', name: 'Dr. Ahmed Hassan', role: 'Chief Medical Officer' },
-    { emoji: '👩‍💼', name: 'Sara Mohamed', role: 'CEO & Co-founder' },
-    { emoji: '👨‍💻', name: 'Khaled Omar', role: 'CTO' },
-    { emoji: '👩‍⚕️', name: 'Dr. Nadia Ali', role: 'Head of Cardiology' },
-  ];
 }

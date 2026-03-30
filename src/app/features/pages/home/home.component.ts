@@ -30,7 +30,7 @@ import { PricingSectionComponent } from '../../components/pricing-section/pricin
       <app-articles-section></app-articles-section>
       <app-videos-section></app-videos-section>
       <app-pricing-section></app-pricing-section>
-      <app-faq-section></app-faq-section>
+      <!-- <app-faq-section></app-faq-section> -->
       <app-cta-section></app-cta-section>
     </main>
   `,
